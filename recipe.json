@@ -1,0 +1,77 @@
+// recipe model
+// has one :category
+
+{
+	"name": "Marci's Ultimate Chocolate Chip Cookies",
+	"headerImage": "img",
+	"Yield": "24",
+	"ingredients": [{"butter": ["3/4", "Stick"]
+					},
+					{"milk": ["2", "Tbs"]
+					},
+					{"Light Brown Sugar": ["1.5", "Cups"]
+					},
+					{"Vanilla": ["1", "Tbsp"]
+					},
+					{"Large Egg": "1"
+					},
+					{"All Purpose Flour": ["1 3/4", "Cups"]
+					},
+					{"Salt": ["1", "Tsp"]
+					},
+					{"Baking Soda": ["3/4", "Tsp"]
+					},
+					{"Chocolate Chips": ["6", "Ounces"]
+					}],
+	"directions": "Heat of to 375&deg; F. Mix the butter and sugar on medium. Mix all the wet ingredients. Do more things. Bake 12 minutes. Enjoy!",
+	"category": "Dessert",
+	"id": "1",
+	"category_id": "5"
+}
+
+// ingredients model
+
+{	
+	"ingredients": [{"butter": ["3/4", "Stick"]
+					},
+					{"milk": ["2", "Tbs"]
+					},
+					{"Light Brown Sugar": ["1 1/2", "Cups"]
+					},
+					{"Vanilla": ["1", "Tbs"]
+					},
+					{"Large Egg": "1"
+					},
+					{"All Purpose Flour": [" 1 3/4", "Cups"]
+					},
+					{"Salt": ["1", "Tsp"]
+					},
+					{"Baking Soda": ["3/4", "Tsp"]
+					},
+					{"Chocolate Chips": ["6", "Ounces"]
+					}]
+}
+
+// category model
+
+[
+	{"name": "Breakfast",
+	 "id": 1
+	},
+
+	{"name": "Lunch",
+	 "id": 2
+	},
+
+	{"name": "Dinner",
+	 "id": 3
+	},
+
+	{"name": "Snack",
+	 "id": 4
+	},
+
+	{"name": "Dessert",
+	 "id": 5
+	}
+]

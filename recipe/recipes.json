@@ -1,0 +1,34 @@
+{
+	"name": "Cheeseburger",
+	"description": "The plainest cheesburger ever.",
+	"notes": ["Juicy", "Thick", "No Veggies"],
+	"calories": 400
+}
+
+{
+	"name": "Steak",
+	"description": "It's a stank steak.",
+	"notes": ["14 ounces", "Medium Rare", "Yummy"],
+	"calories": 900
+}
+
+{
+	"name": "Spaghetti",
+	"description": "It has homemade sauce, what more do you need to know?",
+	"notes": ["Whole Wheat", "Yummy", "Easy"],
+	"calories": 550
+}
+
+{
+	"name": "Chicken Pot Pie",
+	"description": "A Sloan Family Favorite. ",
+	"notes": ["Croisants", "No Veggies", "Thick"],
+	"calories": 735
+}
+
+{
+	"name": "PB&J",
+	"description": "Tried and true lunch for men of all ages.",
+	"notes": ["Easy", "Quick", "Whole Wheat"],
+	"calories": 235
+}

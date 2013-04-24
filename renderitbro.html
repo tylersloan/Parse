@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Render it, Bro</title>
+ 
+  <script src="http://www.parsecdn.com/js/parse-1.2.7.min.js"></script>
+  <script src="jquery-1.9.1.min.js"></script>
+  <script src="renderit.js"></script>
+ 
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<div class="wrapper">
+
+		<h1>Render it, bro.</h1>
+
+		<input class="search" placeholder="Search Recipes" type="search">
+
+		<!-- use a class for js and a class for styles so you can change the styles class if you need to in refactoring and won't have to update your js. -->
+		<div class="js-recipes-container recipes-container">
+
+			<ul></ul>
+
+		</div>
+
+		<div class="js-single-recipe single-recipe">
+
+		</div>
+			<h2></h2>
+			<p></p>
+			<ul></ul>
+			
+			<input class="edit-name" placeholder="Edit Recipe Name"></input>
+			<input class="edit-description" placeholder="Edit Recipe Description"></input>
+			<input class="edit-ingredients" placeholder="Edit Recipe Ingredients"></input>
+
+			<button class="update">Update</button>
+
+			<hr>
+			
+			<button class="back">Back to All Recipes</button>
+
+
+	</div>
+
+</body>
+</html>
