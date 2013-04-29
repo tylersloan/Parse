@@ -1,48 +1,55 @@
-// when the document is loaded
-$(document).ready(function(){
-  
-	// pass in a callback function when the show recipes button is clicked
-	$('.get-all').click(function(){
-		//clear the container of existing stuff
-		$('.recipes-container').html('');
-		$('.get-all').css('visibility', 'hidden');
-		
-		// store the url for json to use
-		var url = '/recipe/recipes.json';
-		
-		// get info from json file url, call it data
-		$.getJSON(url, function(data){
-			//cycle through data array
-			for (var i = 0, max = data.length; i < max; i++){
-				//console log each element
-				console.log(data[i]);
-				//append each element
-				renderRecipe(data[i]);
-			}
-		})
-	})
+Parse.initialize("5WU2sZvYs4FchYPRBxnjRMJtCkzrKiidYynu82PJ", "ZolmoQCozPcqCUyjPQiUfvCIYKfCRUB3THTmrFBd");
+
+Recipes = Parse.Object.extend('Recipes'); 
+
+$(document).ready(function() {
+
+  var query = new Parse.Query(Recipes);
+  query.find({
+    success: function(results) {
+
+      window.recipes = results;
+
+      renderRecipesList(results)
+
+      console.log("These are the recipes you're looking for..." + results.length);
+    },
+    error: function(error) {
+
+      alert("What the...! Where'd they go?!?" + error.code + " " + error.message)
+    }
+  });
 });
- 
-// define renderRecipe function and pass in some data (this particular data describes a recipe)
-var renderRecipe = function(recipe){
-	
-	//set text between text tags to the name of the recipe, etc.
-	var h2 = $('<h2></h2>').text(recipe.name);
-	var p1 = $('<p></p>').text('Description:' + " " + recipe.description);
-	var p2 = $('<p></p>').text('Ingredients:' + " " + recipe.ingredients);
- 
-	//append the heading 
-	$('.recipes-container').append(h2);
- 
-	// if you click on a recipe
-	$(h2).click(function(){
-		$('.get-all').css('visibility', 'visible');
-		//clear everything
-		$('.recipes-container').html('');
-		//print the recipe, description, and ingredients of the thing you clicked
-		$('.recipes-container').append(h2).append(p1).append(p2);
-		
- 
-	})
- 
-}
+
+var renderRecipesList = function(recipes) {
+   console.log('Look! Your stuff is here!', recipes)
+
+
+
+  for (i = 0; i < recipes.length; i++) {
+    var id = recipes[i].id
+    var name = '<h3>' + recipes[i].get('name') + '</h3>';
+    var description = '<p>' + recipes[i].get('description') + '</p>';
+
+    var li = $('<li id="' + id + '">' + name + " " + description + '</li>').click(function() {
+      var id = $(this).attr('id')
+      console.log(id)
+
+      var query = new Parse.Query(Recipes);
+
+      query.get(id, {
+        success: function(result){
+
+          console.log(result.get('name'));
+        }
+      })
+    })     
+
+    $('.js-recipes-container ul').append(li)
+  }
+ }
+
+var renderSingleRecipe = function(recipe) {
+  $('.js-recipes-container').hide()
+  $('.js-single-recipe').show()
+};

@@ -1,7 +1,32 @@
+// Get all recipes from DB before that. – getRecipes()
+		// go find all recipes on Parse
+		// pass that array into listRecipes()
+
+// View all recipes. – listRecipes(recipes)
+		// loop through array of recipes
+			// render each recipe in <li> 
+			// just display name & description
+			// set up click event for showSingleRecipe()
+		// set up click event to show addNewRecipe form
+				// hide all containers and show inputs with placeholder text
+				// save(recipe)
+
+// Be able to click on recipe to view more info on it. – showSingleRecipe(recipe)
+		// show more info of the recipe
+		// set up click event to show edit forms
+
+// showEditForm(recipe) 
+		// hide single recipe container and show recipe info IN inputs
+
+// save(recipe) 
+		// get info from each input and use recipe.set()
+		// call recipe.save()
+			// re-render the recipe with showSingleRecipe()
+
 Parse.initialize("5WU2sZvYs4FchYPRBxnjRMJtCkzrKiidYynu82PJ", "ZolmoQCozPcqCUyjPQiUfvCIYKfCRUB3THTmrFBd");
 
 Recipe = Parse.Object.extend('Recipe');
-recipe = new Recipe()	
+recipe = new Recipe();
 
 $(document).ready(function(){
 	console.log('test');
@@ -49,15 +74,15 @@ var renderRecipeList = function(recipes) {
 			query = new Parse.Query(Recipe);
 
 			query.get(id, {
-				success: function(result) {
+				success: function(results) {
 					//do something here
-					console.log(result.get('name'));
+					console.log(results.get('name'));
 
-					var name = '<h2>' + result.get('name') + '</h2>';
-					var description = '<p>' + result.get('description') + '</p>';
-					var ingredients = '<li>' + result.get('ingredients') + '</li>';
+					var name = '<h2>' + results.get('name') + '</h2>';
+					var description = '<p>' + results.get('description') + '</p>';
+					var ingredients = '<li>' + results.get('ingredients') + '</li>';
 
-					renderSingleRecipe(result)
+					renderSingleRecipe(results)
 					$('.js-single-recipe').html(name + description + ingredients);
 
 					$('.update').click(function(){
